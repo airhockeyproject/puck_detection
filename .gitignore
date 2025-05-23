@@ -12,3 +12,5 @@ wheels/
 # その他
 models/
 uv.lock
+.ruff_cache/
+*.png
