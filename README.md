@@ -7,6 +7,12 @@
 - マーカーによって、画像を面上の２D平面の画像に変換する
 - それに対して、YOLOで中心位置を特定する
 
+データは以下のコマンドでダウンロード
+
+```bash
+curl -L "https://app.roboflow.com/ds/rBJEa9VAyb?key=HV8NontPXK" > roboflow.zip; unzip roboflow.zip; rm roboflow.zip
+```
+
 ## 今後の計画
 
 - YOLOをpuckを検知するように学習する
@@ -20,7 +26,6 @@
     - テーブル上の座標寸法
 - 実機データセットに対して検証する
   - 最終的な寸法があっているかどうか
-
 
 参考
 
