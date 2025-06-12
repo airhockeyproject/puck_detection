@@ -19,7 +19,7 @@ def detect_single_object_center(model: YOLO, image: cv2.typing.MatLike, object_i
 
 if __name__ == "__main__":
     image_path = "images/1.png"
-    model = YOLO("yolov8n.pt")
+    model = YOLO("results/test1_run5/weights/best.pt")
     image = cv2.imread(image_path)
     center_pos = detect_single_object_center(model, image, 0)  # 人だけを検出
 
