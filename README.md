@@ -13,7 +13,7 @@
 curl -L "https://app.roboflow.com/ds/rBJEa9VAyb?key=HV8NontPXK" > roboflow.zip; unzip roboflow.zip; rm roboflow.zip
 ```
 
-## 今後の計画
+## 完了したこと
 
 - YOLOをpuckを検知するように学習する
   - roboflowに上がっている、真上からみたパックのデータセットで学習する
@@ -21,6 +21,9 @@ curl -L "https://app.roboflow.com/ds/rBJEa9VAyb?key=HV8NontPXK" > roboflow.zip; 
 - 実機でデータセットを収集する
   - ホッケー台の四隅にarucoを貼り付けて実施
   - ある程度の数、100のオーダーは欲しい？
+
+## 今後の計画
+
   - 以下を集計
     - 斜めから撮ったパックをホッケー台で撮った画像
     - テーブル上の座標寸法
