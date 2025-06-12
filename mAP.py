@@ -1,16 +1,22 @@
 from ultralytics import YOLO
 
-model = YOLO("results/test1_run5/weights/best.pt")
-results = model.val(data="test1-2/data.yaml", split="test")
+# モデルの読み込み
+model_path = "results/test1_run5/weights/best.pt"
+model = YOLO(model_path)
 
-# 指標を数値として取り出す（1クラス前提）
-map_50_95 = results.box.map
-map_50    = results.box.map50
-precision = results.box.p[0]   # ← [0] を追加
-recall    = results.box.r[0]   # ← [0] を追加
+# 評価対象のデータセット（test: test/images が含まれる必要あり）
+data_yaml_path = "test1-2/data.yaml"
+
+# testセットで評価（split='test'）
+results = model.val(data=data_yaml_path, split="test",workers=0)
+
+# 指標を取得（1クラス前提で .p[0], .r[0] を取得）
+box_precision = results.box.p[0]     # Precision
+box_recall = results.box.r[0]        # Recall
+map_50 = results.box.map50           # mAP@0.5
 
 # 出力
-print(f"mAP@0.5:0.95 = {map_50_95:.4f}")
-print(f"mAP@0.5      = {map_50:.4f}")
-print(f"Precision     = {precision:.4f}")
-print(f"Recall        = {recall:.4f}")
+print("===== Evaluation on test set =====")
+print(f"Box Precision (P)   : {box_precision:.4f}")
+print(f"Box Recall    (R)   : {box_recall:.4f}")
+print(f"mAP@0.5              : {map_50:.4f}")
